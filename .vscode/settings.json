@@ -1,0 +1,4 @@
+{
+    "gitdoc.enabled": true,
+    "python.REPL.enableREPLSmartSend": false
+}
