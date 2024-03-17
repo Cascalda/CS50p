@@ -25,7 +25,6 @@ def generate_password() -> str:
     included_flags = get_flags()
 
     character_pool = "".join(CHARACTERS[flag] for flag in included_flags)
-
     password = "".join(random.choice(character_pool) for _ in range(length))
     return password
 
