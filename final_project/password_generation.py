@@ -5,7 +5,7 @@ import string
 
 MINIMUM_LENGTH = 8
 MAXIMUM_LENGTH = 128
-FLAG_TO_CHARACTERS = {
+CHARACTERS = {
     "lowercase": string.ascii_lowercase,
     "uppercase": string.ascii_uppercase,
     "numbers": string.digits,
@@ -24,7 +24,7 @@ def generate_password() -> str:
     length = get_valid_length()
     included_flags = get_flags()
 
-    character_pool = "".join(FLAG_TO_CHARACTERS[flag] for flag in included_flags)
+    character_pool = "".join(CHARACTERS[flag] for flag in included_flags)
 
     password = "".join(random.choice(character_pool) for _ in range(length))
     return password
@@ -48,6 +48,8 @@ def get_valid_length() -> int:
         if MINIMUM_LENGTH <= length <= MAXIMUM_LENGTH:
             return length
 
+        print("Invalid password length. Please try again.")
+
 
 def get_flags() -> dict[bool]:
     """Get valid flags from the user."""
@@ -60,29 +62,13 @@ def get_flags() -> dict[bool]:
             - At least 1 condition is required.
             """
         )
-        for flag in FLAG_TO_CHARACTERS:
+        for flag in CHARACTERS:
             prompt = f"Include {flag}? "
             include_flag = input(prompt).lower() == "y"
             if include_flag:
                 flags_included.add(flag)
 
     return flags_included
-
-    # --------------------------------------------
-    flags = {key: False for key in FLAG_TO_CHARACTERS}
-
-    while not any(flags.values()):
-        print(
-            """
-            Press y if u wish to include the following, skipping otherwise:
-            - At least 1 condition is required.
-            """
-        )
-        for flag_type in flags:
-            prompt = f"Include {flag_type}? "
-            flags[flag_type] = input(prompt).lower() == "y"
-
-    return flags
 
 
 if __name__ == "__main__":

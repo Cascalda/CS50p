@@ -29,6 +29,7 @@ def get_generator():
         else:
             return generator
 
+
 def generate_username():
     """Generates a unique username."""
     print("User")
