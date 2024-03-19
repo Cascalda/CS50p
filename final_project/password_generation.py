@@ -2,7 +2,8 @@
 
 import random
 import string
-from nltk.corpus import wordnet
+from english_words import get_english_words_set
+
 
 MIN_PASSWORD_CHARACTERS = 8
 MAX_PASSWORD_CHARACTERS = 128
@@ -16,7 +17,7 @@ CHARACTERS = {
     "numbers": string.digits,
     "special characters": string.punctuation,
 }
-WORDS = wordnet.words()
+WORDS = sorted(get_english_words_set(["web2"], lower=True))
 
 
 def main() -> None:
@@ -39,7 +40,7 @@ def password_generators() -> str:
         if generator is None:
             print("Only 'password' or 'passphrase' are accepted.")
         else:
-            return generator
+            return generator()
 
 
 def get_valid_length(min_length: int, max_length: int) -> int:
