@@ -2,6 +2,7 @@
 
 import random
 import string
+from inspect import stack
 from english_words import get_english_words_set
 
 
@@ -43,26 +44,6 @@ def password_generators() -> str:
             return generator()
 
 
-def get_valid_length(min_length: int, max_length: int) -> int:
-    """Obtain a valid length from the user."""
-    print(
-        f"""
-        Length must be between {min_length} and {max_length}.
-        """
-    )
-    while True:
-        try:
-            length = int(input("Enter length: "))
-        except ValueError:
-            print("Only integers are accepted.")
-            continue
-
-        if min_length <= length <= max_length:
-            return length
-
-        print("Invalid length. Please try again.")
-
-
 def generate_passphrase() -> str:
     """Generates a secure passphrase."""
     length = get_valid_length(MIN_PASSPHRASE_WORDS, MAX_PASSPHRASE_WORDS)
@@ -78,6 +59,34 @@ def generate_password() -> str:
 
     character_pool = "".join(CHARACTERS[flag] for flag in included_flags)
     return "".join(random.choices(character_pool, k=length))
+
+
+def get_valid_length(min_length: int, max_length: int) -> int:
+    """Obtain a valid length from the user."""
+    print(
+        f"""
+        Length must be between {min_length} and {max_length}.
+        """
+    )
+
+    morpheme_type = {
+        "generate_password": "character",
+        "generate_passphrase": "word",
+    }
+    caller = stack()[1].function
+
+    while True:
+        try:
+            morpheme = morpheme_type.get(caller, None)
+            length = int(input(f"Enter number of {morpheme}s: "))
+        except ValueError:
+            print("Only integers are accepted.")
+            continue
+
+        if min_length <= length <= max_length:
+            return length
+
+        print("Invalid length. Please try again.")
 
 
 def get_flags() -> dict[bool]:
