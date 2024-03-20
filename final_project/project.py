@@ -1,12 +1,12 @@
 """Password/Username Generator"""
 
-from password_generation import access_key_generators
+from password_generation import password_generators
 
 
 def main():
     """Interface to control all other functions."""
     while True:
-        generator = get_generator_type()
+        generator = get_generator()
         product = generator()
         print(f"\n{product}")
 
@@ -14,13 +14,12 @@ def main():
             break
 
 
-def get_generator_type():
+def get_generator():
     """Matches the generator of choice."""
     while True:
-        # Prompt "password" instead of "access key" as "password" is more colloquial
         choice = input("\nPassword (P) or Username (U): ").lower()
         match = {
-            "p": access_key_generators,
+            "p": password_generators,
             "u": generate_username,
         }
 
