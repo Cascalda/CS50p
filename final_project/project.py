@@ -1,6 +1,7 @@
 """Password/Username Generator"""
 
-from password_generation import generate_password
+from password_generation import password_generators
+
 
 def main():
     """Interface to control all other functions."""
@@ -18,7 +19,7 @@ def get_generator():
     while True:
         choice = input("\nPassword (P) or Username (U): ").lower()
         match = {
-            "p": generate_password,
+            "p": password_generators,
             "u": generate_username,
         }
 
@@ -28,6 +29,7 @@ def get_generator():
             print("Only 'p' or 'u' are accepted.")
         else:
             return generator
+
 
 def generate_username():
     """Generates a unique username."""
