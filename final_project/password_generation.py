@@ -68,7 +68,11 @@ def generate_password() -> str:
 
 def get_valid_length(min_length: int, max_length: int) -> int:
     """Obtain a valid length from the user."""
-    print(f"Length must be between {min_length} and {max_length}.")
+    print(
+        f"""
+          Length must be between {min_length} and {max_length}.
+        """
+    )
 
     morpheme_type = {
         "generate_password": "character",
@@ -116,11 +120,11 @@ def get_separator() -> str:
     separator_length = 1
 
     while True:
-        separator = input("Enter separator: ")
+        separator = input("Enter separator: ") or "_"
         if len(separator) == separator_length:
             return separator
 
-        print("Only 1 character is accepted.")
+        print("\nOnly 1 character is accepted.")
 
 
 if __name__ == "__main__":
