@@ -3,7 +3,7 @@
 from password_generation import access_key_generators
 
 
-def main():
+def main() -> None:
     """Interface to control all other functions."""
     while True:
         generator = get_generator_type()

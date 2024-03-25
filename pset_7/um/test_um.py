@@ -1,4 +1,4 @@
-"""Tests um.py"""
+"""Tests um.py."""
 from um import count
 import pytest
 
@@ -11,7 +11,7 @@ testcases = [
 
 
 @pytest.mark.parametrize("input_text, expected_result", testcases)
-def test_count(input_text, expected_result):
+def test_count(input_text: str, expected_result: int) -> None:
     """Test count function."""
     assert count(input_text) == expected_result
 

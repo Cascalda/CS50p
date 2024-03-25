@@ -3,14 +3,14 @@
 import re
 
 
-def main():
+def main() -> bool:
     """Interface to control all other functions."""
     ip_address = input("IPv4 Address: ")
     result = validate(ip_address)
     return result
 
 
-def validate(ip_address):
+def validate(ip_address: str) -> bool:
     """Validate IPv4 address."""
     octets = ip_address.split(".")
     octet_amount = 4

@@ -1,8 +1,8 @@
-"""Provides the desciption of the file extension"""
+"""Provides the desciption of the file extension."""
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
     user_input = input("File name: ")
     *_, extension = user_input.strip().split(".")
     cleansed_input = extension.lower()
@@ -12,7 +12,7 @@ def main():
 
 
 def extension_descriptor(file_extension: str) -> str:
-    """Provides short description of file type given its extension"""
+    """Provides short description of file type given its extension."""
     match file_extension:
         case "gif" | "png":
             return f"image/{file_extension}"

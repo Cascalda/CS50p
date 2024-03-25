@@ -1,4 +1,6 @@
 """Tests working.py."""
+
+# pylint: disable=C0116
 from working import convert
 import pytest
 
@@ -12,23 +14,22 @@ valid_cases = [
 ]
 
 invalid_cases = [
-    (ValueError, [
-        "8:60 AM to 4:60 PM",
-        "9AM to 5PM",
-        "09:00 to 17:00",
-        "9 AM - 5 PM",
-        "10:7 AM - 5:1 PM",
-    ]),
+    (
+        ValueError,
+        [
+            "8:60 AM to 4:60 PM",
+            "9AM to 5PM",
+            "09:00 to 17:00",
+            "9 AM - 5 PM",
+            "10:7 AM - 5:1 PM",
+        ],
+    ),
 ]
-
-# pylint: disable=C0116
 
 
 @pytest.mark.parametrize("testcase, expected_result", valid_cases)
 def test_valid_cases(testcase, expected_result):
     assert convert(testcase) == expected_result
-
-# pylint: disable=C0116
 
 
 @pytest.mark.parametrize("expected_exception, testcases", invalid_cases)

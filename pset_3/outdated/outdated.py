@@ -1,4 +1,4 @@
-"""Changes middle endian dates to big endian dates"""
+"""Changes middle endian dates to big endian dates."""
 
 accepted_months = {
     "January": "1",
@@ -16,8 +16,8 @@ accepted_months = {
 }
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
 
     while True:
         date_user = input("Date: ").strip()
@@ -32,7 +32,7 @@ def main():
 
 
 def date_middle_endian_to_big_endian(date: str) -> str:
-    """Formats American dates to ISO dates"""
+    """Formats American dates to ISO dates."""
     # Extracting day, month, year while checking for format validity
     if "/" in date:
         month, day, year = date.split("/")

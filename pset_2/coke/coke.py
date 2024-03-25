@@ -1,15 +1,15 @@
-"""Provides the due or owed amount according to coins given"""
+"""Provides the due or owed amount according to coins given."""
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
 
     result = coke_machine()
     print(result)
 
 
 def coke_machine() -> str:
-    """Tells you amount due until you paid at least 50 cents"""
+    """Tells you amount due until you paid at least 50 cents."""
 
     amount_due = 50
 

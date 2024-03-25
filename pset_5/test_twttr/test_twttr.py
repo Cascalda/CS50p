@@ -1,4 +1,6 @@
-"""Tests twttr.py from pset_2"""
+"""Tests twttr.py from pset_2."""
+
+# pylint: disable=C0116
 from twttr import shorten
 import pytest
 

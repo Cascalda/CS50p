@@ -1,5 +1,6 @@
 """Tests jar.py."""
 
+# pylint: disable=C0116
 from jar import Jar
 import pytest
 
@@ -8,7 +9,6 @@ OVERFLOW_MODIFIER = 999
 
 
 def test_init_sets_default_capacity():
-    """Tests initialisation sets the correct default capacity."""
     jar = Jar()
     default_capacity = 12
 
@@ -16,7 +16,6 @@ def test_init_sets_default_capacity():
 
 
 def test_init_sets_custom_capacity():
-    """Tests initialisation sets the correct custom capacity."""
     custom_capacity = 123
     jar = Jar(capacity=custom_capacity)
 
@@ -24,13 +23,11 @@ def test_init_sets_custom_capacity():
 
 
 def test_str_empty_jar():
-    """Tests __str__ prints nothing in an empty jar."""
     jar = Jar()
     assert str(jar) == ""
 
 
 def test_str_custom_size():
-    """Tests __str__ prints out the correct representation of the jar size."""
     capacity = 40
     jar = Jar(capacity)
 
@@ -41,7 +38,6 @@ def test_str_custom_size():
 
 
 def test_deposit():
-    """Tests depositing cookies into the jar."""
     capacity = 60
     jar = Jar(capacity)
 
@@ -56,7 +52,6 @@ def test_deposit():
 
 
 def test_withdraw():
-    """Tests withdrawing cookies from the jar."""
     capacity = 21
     jar = Jar(capacity)
 

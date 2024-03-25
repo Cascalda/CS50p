@@ -1,4 +1,6 @@
-"""Tests fuel.py from pset_3"""
+"""Tests fuel.py from pset_3."""
+
+# pylint: disable=C0116
 from fuel import convert, gauge
 import pytest
 

@@ -1,4 +1,6 @@
-"""Tests bank.py from pset_1"""
+"""Tests bank.py from pset_1."""
+
+# pylint: disable=C0116
 from bank import value
 import pytest
 

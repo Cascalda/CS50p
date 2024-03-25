@@ -1,8 +1,8 @@
-"""A basic calculator"""
+"""A basic calculator."""
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
 
     user_input = input("Expression: ")
     num_1, oper, num_2 = user_input.split()
@@ -11,10 +11,8 @@ def main():
     print(results)
 
 
-def math_interpreter(integer_1: float,
-                     operator: str,
-                     integer_2: float) -> float:
-    """Calculates with simple operators"""
+def math_interpreter(integer_1: float, operator: str, integer_2: float) -> float:
+    """Calculates with simple operator."""
 
     match operator:
         case "+":

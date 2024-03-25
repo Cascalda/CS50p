@@ -1,4 +1,4 @@
-"""Use pyfiglet to make fonts"""
+"""Use pyfiglet to make fonts."""
 import sys
 import random
 
@@ -7,8 +7,8 @@ from pyfiglet import Figlet
 figlet = Figlet()
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
     try:
         font_converter()
         text = input("Input: ")
@@ -17,8 +17,8 @@ def main():
         sys.exit("Only empty prompt or prompt with -f or --font is accepted")
 
 
-def font_converter():
-    """Converts text into different fonts"""
+def font_converter() -> None:
+    """Converts text into different fonts."""
     font_command = sys.argv[1:]
 
     if len(font_command) == 0:

@@ -1,19 +1,19 @@
-"""Gives the appropriate money for appropriate greeting"""
+"""Gives the appropriate money for appropriate greeting."""
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
     user_input = input("Greeting: ")
     results = value(user_input)
     print(f"${results}")
 
 
-def value(greeting):
-    """Money for greeting"""
+def value(greeting: str) -> int:
+    """Money for greeting."""
     greeting = greeting.lower()
     if greeting.startswith("hello"):
         return 0
-    elif greeting.startswith("h"):
+    if greeting.startswith("h"):
         return 20
     else:
         return 100

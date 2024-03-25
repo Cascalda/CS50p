@@ -1,8 +1,8 @@
-"""Gives fuel gauge fractions in percents"""
+"""Gives fuel gauge fractions in percents."""
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
 
     while True:
         obtained_fuel_gauge = input("Fraction: ")
@@ -21,7 +21,7 @@ def main():
 
 
 def convert(fraction: str) -> float:
-    """Converts fuel gauge to percentages"""
+    """Converts fuel gauge to percentages."""
 
     numerator, denominator = [int(num) for num in fraction.split("/")]
     if denominator == 0:
@@ -35,7 +35,7 @@ def convert(fraction: str) -> float:
 
 
 def gauge(percentage: int) -> str:
-    """Determines the gauge reading"""
+    """Determines the gauge reading."""
 
     if percentage <= 1:
         return "E"

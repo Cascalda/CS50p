@@ -1,15 +1,16 @@
 """Extracts the shortened youtube link from html tag."""
+
 import re
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> str | None:
+    """Interface to control all other functions."""
     line = input("HTML: ")
     return parse(line)
 
 
-def parse(line):
-    """Finds the youtube url and gives back the shortened link"""
+def parse(line: str) -> str | None:
+    """Finds the youtube url and gives back the shortened link."""
     if iframe_match := re.search(
         r"""
         <iframe\s+src="  # Match the iframe tag with src attribute
@@ -24,8 +25,8 @@ def parse(line):
     ):
         video_id = iframe_match.group(2)  # Extract only the needed value
         return f"https://youtu.be/{video_id}"
-    else:
-        return None
+
+    return None
 
 
 if __name__ == "__main__":
