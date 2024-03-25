@@ -1,15 +1,15 @@
-"""Removes vowels in words"""
+"""Removes vowels in words."""
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
 
     user_input = input("Input: ")
     result = shorten(user_input)
     print(result)
 
 
-def shorten(characters):
+def shorten(characters: str) -> str:
     """Removes vowels like twttr does"""
     vowels = ("a", "e", "i", "o", "u", "A", "E", "I", "O", "U")
 

@@ -1,8 +1,8 @@
-"""Convert camelCase characters into snake case"""
+"""Convert camelCase characters into snake case."""
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
 
     user_input = input("camelCase: ")
 
@@ -11,7 +11,7 @@ def main():
 
 
 def snake_caser(camel_case: str) -> str:
-    """Brings the snake_case out of camelCase"""
+    """Brings the snake_case out of camelCase."""
 
     snake_cased = ""
 

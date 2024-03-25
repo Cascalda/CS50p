@@ -25,19 +25,19 @@ class MyPDF(FPDF):
         self.cell(w=0, txt=PDF_TEXT, align='C')
         self.ln(15)
 
-    def add_shirt(self):
+    def add_shirt(self) -> None:
         """Add the shirt image."""
         self.image(name=IMAGE_PATH, x=SHIRT_X, y=SHIRT_Y,
                    w=SHIRT_W, h=SHIRT_H, type='PNG')
 
-    def add_shirtificate_slogan(self):
+    def add_shirtificate_slogan(self) -> None:
         """Adds the certificate of completion slogan on the shirt."""
         self.set_font(family='Arial', size=30)
         self.set_text_color(255, 255, 255)
         self.cell(w=SHIRT_TEXT_W, h=SHIRT_TEXT_H, txt=SHIRT_TEXT, align="C")
 
 
-def main():
+def main() -> None:
     """Interface that controls all other functions."""
     pdf = MyPDF(orientation='portrait', format='a4')
     pdf.add_page()

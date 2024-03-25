@@ -1,9 +1,9 @@
-"""Converts code into emojis"""
+"""Converts code into emojis."""
 import emoji
 
 
-def emojizer():
-    """Takes in a string to output it back with emojis"""
+def emojizer() -> None:
+    """Takes in a string to output it back with emojis."""
     code = input("Input: ")
     emojized = emoji.emojize(code, language="alias")
     print(emojized)

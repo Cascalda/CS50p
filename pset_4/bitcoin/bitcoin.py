@@ -1,17 +1,18 @@
-"""Exchange currency for bitcoin"""
+"""Exchange currency for bitcoin."""
+
 import sys
 import requests
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
     bitcoins_requested = bitcoins_to_get()
     bitcoins_in_usd = bitcoin_to_usd(bitcoins_requested)
     print(f"${bitcoins_in_usd:,.4f}")
 
 
-def bitcoins_to_get():
-    """The number of bitcoins the user wants to get"""
+def bitcoins_to_get() -> str:
+    """The number of bitcoins the user wants to get."""
     try:
         return sys.argv[1]
     except IndexError:
@@ -20,8 +21,8 @@ def bitcoins_to_get():
         sys.exit("Command-line argument must be a number")
 
 
-def bitcoin_to_usd(bitcoins):
-    """Provides the rate conversion of bitcoin currently"""
+def bitcoin_to_usd(bitcoins: str) -> float:
+    """Provides the rate conversion of bitcoin currently."""
     try:
         data = requests.get(
             "https://api.coindesk.com/v1/bpi/currentprice.json", timeout=5

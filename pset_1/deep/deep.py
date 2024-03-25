@@ -1,12 +1,12 @@
-"""Checks your answer to the question what is the answer to everything
+"""Checks your answer to the question what is the answer to everything.
     - A reference to Hitchhiker's Guide to the Galaxy
 """
 
 ANSWERS = ("42", "forty-two", "forty two")
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
     question = """
     What's the answer to the Great Question of Life,
     the Universe,
@@ -16,8 +16,8 @@ def main():
     deep_answer(user_input.lower().strip())
 
 
-def deep_answer(answer: str):
-    """Provides a thought provoking answer"""
+def deep_answer(answer: str) -> None:
+    """Provides a thought provoking answer."""
     if answer in ANSWERS:
         print("Yes")
     else:

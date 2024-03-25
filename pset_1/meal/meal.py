@@ -1,7 +1,7 @@
-"""Meal Time"""
+"""Meal Time."""
 
 
-def main():
+def main() -> None:
     """Interface to control all other functions"""
 
     user_input = input("What time is it? ")
@@ -12,7 +12,7 @@ def main():
 
 
 def convert(time: str) -> float:
-    "Converts time to hours"
+    "Converts time to hours."
 
     hour_minute_pair, *suffix = time.split(" ")
     hour, minute = hour_minute_pair.split(":")
@@ -26,7 +26,7 @@ def convert(time: str) -> float:
 
 
 def meal_time_teller(hour: int) -> str | None:
-    """Tells you what meal you should be eating at the given time"""
+    """Tells you what meal you should be eating at the given time."""
 
     meal_to_eat = {
         (7 <= hour <= 8): "breakfast time",

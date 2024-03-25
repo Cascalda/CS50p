@@ -2,7 +2,7 @@
 import validators
 
 
-def main():
+def main() -> None:
     """Interface to control all other functions."""
     given_email = input("Whats your email address? ")
     if validators.email(given_email):

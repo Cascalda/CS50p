@@ -1,8 +1,8 @@
-"""Records and displays the users groceries list"""
+"""Records and displays the users groceries list."""
 
 
 def grocery_maker() -> None:
-    """Makes groceries and displays them"""
+    """Makes groceries and displays them."""
     groceries_list = {}
 
     while True:

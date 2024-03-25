@@ -1,7 +1,7 @@
 """Repeats what the user has said but with playful delay."""
 
 
-def main():
+def main() -> None:
     """Interface to control all other functions."""
     result = play_it_back()
     print(result)

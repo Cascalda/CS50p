@@ -1,7 +1,7 @@
 """Finds the appropriate tip given the cost and rate."""
 
 
-def main():
+def main() -> None:
     """Interface to control all other functions."""
     dollars = get_dollars(input("How much was the meal? "))
     percent = get_percentage(input("What percentage would you like to tip? "))

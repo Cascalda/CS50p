@@ -1,5 +1,6 @@
 """Tests seasons.py."""
 
+# pylint: disable=C0116
 from seasons import convert_age_to_words
 import pytest
 
@@ -13,7 +14,6 @@ testcases = [
 
 @pytest.mark.parametrize("input_text, expected_result", testcases)
 def test_convert_age_to_words(input_text, expected_result):
-    """Test convert_age_to_words function."""
     assert convert_age_to_words(input_text) == expected_result
 
 

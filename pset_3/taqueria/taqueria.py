@@ -1,8 +1,8 @@
-"""Computes immediate cost given order"""
+"""Computes immediate cost given order."""
 
 
-def main():
-    """Interface to control all other functions"""
+def main() -> None:
+    """Interface to control all other functions."""
     total_cost = 0
 
     while True:
@@ -16,8 +16,8 @@ def main():
             break
 
 
-def order_payment(order_obtained):
-    """Gets all the total of the order"""
+def order_payment(order_obtained) -> float:
+    """Gets all the total of the order."""
     taqueria_menu = {
         "Baja Taco": 4.25,
         "Burrito": 7.50,

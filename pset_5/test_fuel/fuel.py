@@ -1,7 +1,7 @@
 """Gives fuel gauge fractions in percents"""
 
 
-def main():
+def main() -> None:
     """Interface to control all other functions"""
     prompt = input("Fraction: ")
     percentage = convert(prompt)
@@ -9,14 +9,14 @@ def main():
     print(indication)
 
 
-def convert(fraction):
+def convert(fraction: str) -> int:
     """Converts fuel gauge to percentages"""
     try:
         numerator, denominator = (int(num) for num in fraction.split("/"))
 
         if denominator == 0:
             raise ZeroDivisionError("Division by 0 is left undefined")
-        elif numerator > denominator:
+        if numerator > denominator:
             raise ValueError("Only proper fractions are accepted")
 
         percentage = round((numerator / denominator) * 100)
@@ -27,15 +27,15 @@ def convert(fraction):
         raise
 
 
-def gauge(percentage):
+def gauge(percentage: int) -> str:
     """Determines the gauge reading"""
 
     if percentage <= 1:
         return "E"
-    elif percentage >= 99:
+    if percentage >= 99:
         return "F"
-    else:
-        return f"{percentage}%"
+
+    return f"{percentage}%"
 
 
 if __name__ == "__main__":

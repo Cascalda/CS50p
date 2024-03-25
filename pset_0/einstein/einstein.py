@@ -1,7 +1,7 @@
 """Calculate the energy using E = mc^2."""
 
 
-def main():
+def main() -> None:
     """Interface to control all other functions."""
     user_input = int(input("m: "))
     result = energy(user_input)

@@ -1,7 +1,7 @@
 """Converting Emoticons to Emojis."""
 
 
-def main():
+def main() -> None:
     """Interface to control all other functions."""
     user_input = input("Say something with emoticons! ")
     result = convert(user_input)
