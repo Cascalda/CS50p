@@ -5,7 +5,6 @@ import string
 from inspect import stack
 from english_words import get_english_words_set
 
-
 MIN_PASSWORD_CHARACTERS = 8
 MAX_PASSWORD_CHARACTERS = 128
 
@@ -23,8 +22,12 @@ WORDS = sorted(get_english_words_set(["web2"], lower=True))
 
 def main() -> None:
     """Interface to control all other functions."""
-    access_key = access_key_generators()
-    print(access_key)
+    while True:
+        access_key = access_key_generators()
+        print(access_key)
+
+        if input("\nGenerate another? (y/n) ").lower() != "y":
+            break
 
 
 def access_key_generators() -> str:
@@ -84,18 +87,18 @@ def get_valid_length(min_length: int, max_length: int) -> int:
         morpheme = morpheme_type.get(caller, None)
 
         try:
-            length = int(input(f"Enter number of {morpheme}s: "))
+            length = int(input(f"\nEnter length of {morpheme}: "))
         except ValueError:
-            print("Only integers are accepted.")
+            print("\nOnly integers are accepted.")
             continue
 
         if min_length <= length <= max_length:
             return length
 
-        print("Invalid length. Please try again.")
+        print("\nInvalid length. Please try again.")
 
 
-def get_flags() -> dict[bool]:
+def get_flags() -> set[str]:
     """Get valid flags from the user."""
     flags_included = set()
 
@@ -107,24 +110,22 @@ def get_flags() -> dict[bool]:
             """
         )
         for flag in CHARACTERS:
-            prompt = f"Include {flag}? "
-            include_flag = input(prompt).lower() == "y"
+            include_flag = input(f"\nInclude {flag}? ").lower() == "y"
             if include_flag:
                 flags_included.add(flag)
 
     return flags_included
 
 
-def get_separator() -> str:
+def get_separator(max_length: int = 2, default: str = "_") -> str:
     """Obtains a valid separator from the user."""
-    separator_length = 1
 
     while True:
-        separator = input("Enter separator: ") or "_"
-        if len(separator) == separator_length:
+        separator = input(f"Enter separator (Defaulted to {default}): ") or default
+        if len(separator) <= max_length:
             return separator
 
-        print("\nOnly 1 character is accepted.")
+        print(f"Up to {max_length} characters are accepted.")
 
 
 if __name__ == "__main__":
